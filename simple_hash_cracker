@@ -1,0 +1,23 @@
+import hashlib
+
+def crack_md5_hash(hash_to_crack, dictionary_file):
+    with open(dictionary_file, "r") as file:
+        for password in file:
+            password = password.strip("\n")
+            md5_hash = hashlib.md5(password.encode('utf-8')).hexdigest()
+            if md5_hash == hash_to_crack:
+                return password
+    return None
+
+def main():
+    hash_to_crack = '[hash value of the password]'
+    dictionary_file = "[dictionary list of passwords]"
+
+    cracked_password = crack_md5_hash(hash_to_crack, dictionary_file)
+    if cracked_password:
+        print(f"cracked password: {cracked_password}")
+    else:
+        print("password not found.")
+
+if __name__ == "__main__":
+    main()
