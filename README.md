@@ -14,4 +14,4 @@ Prerequisites
 Python 3 installed
 
 Run the script:
-python3 hashcracker.py
+python3 simple_hash_cracker.py
